@@ -35,8 +35,8 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource
         myTableView.dataSource = self
         searchText.placeholder = "好きな配信者を入力してください"
         searchText.delegate = self
-        myTableView.emptyDataSetSource = self
-        myTableView.emptyDataSetDelegate = self
+//        myTableView.emptyDataSetSource = self
+//        myTableView.emptyDataSetDelegate = self
         
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "再読み込み中")
@@ -316,9 +316,10 @@ class ViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource
     
 }
 
-extension ViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        print("画像を表示しています。")
-        return UIImage(named: "top2.png")
-    }
-}
+//extension ViewController: DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+//    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+//        print("画像を表示しています。")
+//        return UIImage(named: "top2.png")
+//    }
+//}
+
