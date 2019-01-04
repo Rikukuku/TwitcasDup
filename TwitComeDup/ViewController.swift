@@ -43,7 +43,18 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDataSour
         myTableView.addSubview(refreshControl)
         thumbnailImage.image = UIImage(named: "headerIcon3.png")
         myTableView.tableFooterView = UIView(frame: .zero)
-        veryfyCredential()
+        //veryfyCredential()
+        let alamofireVeryfy = AlamofireRequests(req_url: "https://apiv2.twitcasting.tv/verify_credentials", auth_header: ["Authorization": "Bearer " + access_token, "X-Api-Version": "2.0", "Accept": "application/json"])
+        alamofireVeryfy.getComment{ result in
+            print("-----------------")
+            print(result)
+            if let last_movie_id = result["user"]["last_movie_id"].string {
+            print(last_movie_id)
+            } else {
+                print("中身はからです")
+            }
+            
+            }
     }
 
     func updateTable() {
